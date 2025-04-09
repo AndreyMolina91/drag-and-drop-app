@@ -1,0 +1,36 @@
+<mat-card
+  #cardRef
+  class="character-card"
+  [ngClass]="[character.status.toLowerCase(), isDragging() ? 'dragging' : '']"
+  [attr.data-draggable-id]="character.id"
+  [attr.data-item-id]="character.id"
+  [attr.data-from-column-id]="columnId"
+  [attr.data-type]="'card'"
+>
+  <!-- Icono favorito flotante -->
+  <mat-icon
+    class="favorite-icon"
+    [ngClass]="{ active: character.isFavorite }"
+    (click)="toggleFavorite($event)"
+    >star</mat-icon
+  >
+
+  <div class="card-content">
+    <img
+      class="character-image"
+      [src]="character.image"
+      [alt]="character.name"
+      draggable="false"
+    />
+
+    <div class="character-info">
+      <div class="character-name">{{ character.name }}</div>
+      <div class="character-meta">
+        <span><strong>Especie:</strong> {{ character.species }}</span>
+        <span><strong>Estado:</strong> {{ character.status }}</span>
+        <span><strong>Género:</strong> {{ character.gender }}</span>
+        <span><strong>Origen:</strong> {{ character.origin?.name }}</span>
+      </div>
+    </div>
+  </div>
+</mat-card>

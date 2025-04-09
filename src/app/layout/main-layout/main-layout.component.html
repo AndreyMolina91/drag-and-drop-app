@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" class="toolbar">
+  <span class="title">Rick & Morty Drag&Drop App</span>
+
+  <span class="spacer"></span>
+</mat-toolbar>
+
+<div class="main-container">
+  <app-column-board [filter]="searchText" />
+</div>
+
+<div class="floating-search" [class.open]="searchOpen">
+  <button
+    mat-fab
+    color="primary"
+    class="search-button"
+    (click)="toggleSearch()"
+    aria-label="Buscar personaje"
+  >
+    <mat-icon>{{ searchOpen ? "close" : "search" }}</mat-icon>
+  </button>
+
+  <div class="search-container" *ngIf="searchOpen">
+    <mat-form-field appearance="outline" class="search-input">
+      <mat-label>Buscar</mat-label>
+      <input
+        matInput
+        [(ngModel)]="searchText"
+        (ngModelChange)="onSearchChange($event)"
+        placeholder="Nombre..."
+      />
+    </mat-form-field>
+  </div>
+</div>

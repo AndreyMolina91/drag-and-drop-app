@@ -1,0 +1,28 @@
+<div class="board-container">
+  <div
+    *ngFor="let column of columns"
+    class="column"
+    [attr.data-drop-id]="column.id"
+    [attr.data-column-id]="column.id"
+    [attr.data-type]="'column'"
+    #dropTargetRef
+    [class.dragged-over]="isDraggedOver()"
+  >
+    <header class="column-header">
+      {{ column.title }}
+    </header>
+
+    <div class="card-list">
+      <div
+        *ngFor="let character of column.characters; trackBy: trackByCharacterId"
+        class="draggable-wrapper"
+      >
+        <app-character-card
+          [character]="character"
+          [columnId]="column.id"
+          (favoriteToggled)="handleFavoriteToggle($event.character)"
+        />
+      </div>
+    </div>
+  </div>
+</div>
