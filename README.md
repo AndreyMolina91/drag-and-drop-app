@@ -83,7 +83,7 @@ preview
 
 📦 Instalación
 
-git clone https://github.com/tu-usuario/rick-morty-drag-app.git
+git clone https://github.com/AndreyMolina91/drag-and-drop-app.git
 cd rick-morty-drag-app
 npm install
 ng serve
