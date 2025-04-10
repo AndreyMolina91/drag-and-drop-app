@@ -1,7 +1,10 @@
 <mat-card
   #cardRef
   class="character-card"
-  [ngClass]="[character.status.toLowerCase(), isDragging() ? 'dragging' : '']"
+  [ngClass]="[
+    character?.status ? character.status.toLowerCase() : '',
+    isDragging() ? 'dragging' : ''
+  ]"
   [attr.data-draggable-id]="character.id"
   [attr.data-item-id]="character.id"
   [attr.data-from-column-id]="columnId"
